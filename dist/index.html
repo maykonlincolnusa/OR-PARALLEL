@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OR PARALLEL — Sociedade Artificial Local</title>
+  <meta name="description" content="Uma cidade artificial movida localmente pelo Llama." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="mark">OR</span><div><strong>PARALLEL</strong><small>sociedade artificial local</small></div></div>
+    <div class="clock"><span id="day">DIA 01</span><strong id="period">08:20 · MANHÃ</strong></div>
+    <div id="modelStatus" class="status"><i></i><span>verificando Llama…</span></div>
+  </header>
+
+  <main>
+    <section class="world-panel">
+      <div class="section-heading"><div><small>UNIVERSO OR-01</small><h1>Vila Aurora</h1></div><button id="pauseBtn" class="ghost">Ⅱ &nbsp; Pausar</button></div>
+      <div class="city" id="city">
+        <div class="roads road-h"></div><div class="roads road-v"></div>
+        <button class="building hospital" data-place="Hospital"><b>+</b><span>Hospital</span></button>
+        <button class="building market" data-place="Mercado"><b>◇</b><span>Mercado</span></button>
+        <button class="building hall" data-place="Prefeitura"><b>▦</b><span>Prefeitura</span></button>
+        <button class="building cafe" data-place="Café"><b>◒</b><span>Café</span></button>
+        <button class="building homes" data-place="Residências"><b>⌂</b><span>Residências</span></button>
+        <button class="building square" data-place="Praça"><b>✦</b><span>Praça</span></button>
+        <div id="agentsLayer"></div>
+        <div class="weather"><span>☀</span><div><small>CLIMA</small><b>23°C · CALMO</b></div></div>
+      </div>
+      <div class="metrics">
+        <div><span>Confiança</span><strong id="trustValue">61%</strong><progress id="trustBar" max="100" value="61"></progress></div>
+        <div><span>Economia</span><strong id="economyValue">54%</strong><progress id="economyBar" max="100" value="54"></progress></div>
+        <div><span>Tensão social</span><strong id="tensionValue">28%</strong><progress class="danger" id="tensionBar" max="100" value="28"></progress></div>
+      </div>
+    </section>
+
+    <aside class="intel-panel">
+      <div class="eyebrow"><span></span> CENTRAL DE ACONTECIMENTOS</div>
+      <div class="event-card active-event">
+        <small>EVENTO ATIVO</small><h2 id="eventTitle">Um começo tranquilo</h2>
+        <p id="eventSummary">Os oito habitantes iniciam a rotina sem saber como suas escolhas irão alterar a cidade.</p>
+        <div id="eventSource" class="source">Estado inicial</div>
+      </div>
+
+      <div class="injector">
+        <label for="eventInput">Intervir neste universo</label>
+        <div><input id="eventInput" placeholder="Ex.: um apagão atinge a cidade" maxlength="180" /><button id="injectBtn">Introduzir</button></div>
+        <div class="chips"><button data-event="Uma tempestade derruba a energia por três dias">Apagão</button><button data-event="A única fábrica anuncia seu fechamento">Crise econômica</button><button data-event="Um rumor falso começa a circular">Rumor</button></div>
+      </div>
+
+      <div class="timeline-head"><h3>Linha do tempo</h3><button id="forkBtn" class="fork">⑂ Criar universo paralelo</button></div>
+      <div id="timeline" class="timeline"></div>
+    </aside>
+  </main>
+
+  <section id="agentDrawer" class="drawer" aria-hidden="true">
+    <button id="closeDrawer">×</button><div class="portrait" id="drawerAvatar"></div>
+    <small>HABITANTE</small><h2 id="drawerName"></h2><p id="drawerRole"></p>
+    <div class="trait" id="drawerTrait"></div><h3>Memória mais recente</h3><blockquote id="drawerMemory"></blockquote>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
